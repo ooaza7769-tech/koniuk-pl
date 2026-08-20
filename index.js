@@ -1,29 +1,3 @@
-/*
-  koniuch.pl
-  Powered by Jaczup
-
-  Moja wersja (koniuch.pl):
-  - https://github.com/jaczup/koniuch.pl
-  Oryginalna wersja (theannoyingsite.com):
-  - https://github.com/feross/TheAnnoyingSite.com/
-
-  Kontakt: https://jaczup.pl
-  Oficjalny serwer Discord (język polski), zdobądź tag KOŃ: https://dc.koniuch.pl
-
-  Kontrybutorzy:
-    @jaczup - https://github.com/jaczup
-    @intexpression - https://github.com/intexpression
-    @dan64iel - https://github.com/dan64iel
-    @imzeme - https://github.com/imzeme
-    @GameShoot8050 - https://github.com/GameShoot8050
-    @wetraks -  https://github.com/wetraks
-    @cryblanka - https://github.com/cryblanka
-    @9fm - https://github.com/9fm
-    @MARECKIyt - https://github.com/MARECKIyt
-    @Hyd3r1 - https://github.com/Hyd3r1
-    @MariaWasNotAvailable - https://github.com/MariaWasNotAvailable
-*/
-
 const SCREEN_WIDTH = window.screen.availWidth
 const SCREEN_HEIGHT = window.screen.availHeight
 const WIN_WIDTH = 480
@@ -743,8 +717,8 @@ function requestWebauthnAttestation () {
         // Użytkownik:
         user: {
           id: new Uint8Array(16),
-          name: 'lolica@jaczup.me',
-          displayName: 'Koniuch Jaczupa'
+          name: 'gej',
+          displayName: 'Koniuch'
         },
 
         pubKeyCredParams: [{
