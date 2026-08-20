@@ -70,7 +70,7 @@ const SEARCHES = [
 ]
 
 const VIDEOS = [
-  'media/videos/jaczup.mp4',
+  'media/videos/caballo.gif',
   'media/videos/duck.mp4',
   'media/videos/rickroll.mp4',
   'media/videos/golomb.mp4',
@@ -87,18 +87,18 @@ const VIDEOS = [
 ]
 
 const FILE_DOWNLOADS = [
-  'media/images/ptok.jpg',
-  'media/images/jaczup.jpg',
-  'media/images/jaczupme.jpg',
-  'media/images/ptoszek.jpg',
-  'media/images/ptakwspodniach.jpg',
-  'media/images/kichajacyptoszek.jpg',
-  'media/images/lubieptoszki.png',
-  'media/images/zimowyptoszek.jpeg', // added by @dan64iel
-  'media/images/zlyptok.jpeg', //added by @imzeme
-  'media/images/grubyptok.jpg', //added by @imzeme
-  'media/images/ptokzjajami.jpeg', //added by @MARECKIyt
-  'media/images/ptiszka.jpg',
+  'media/images/konik.jpg',
+  'media/images/koniuszek.jpg',
+  'media/images/kanar.jpg',
+  'media/images/kasti.jpg',
+  'media/images/ai.png',
+  'media/images/konno.jpg',
+  'media/images/lubiekonie.jpg',
+  'media/images/cojest.jpg', // added by @dan64iel
+  'media/images/smieszny.jpg', //added by @imzeme
+  'media/images/hmmm.jpg', //added by @imzeme
+  'media/images/kaska.jpg', //added by @MARECKIyt
+  'media/images/pies.jpg',
 ]
 
 const PHRASES = [
