@@ -1,34 +1,41 @@
 <!doctype html>
-<html>
+<html lang="pl">
 <head>
   <title>Konik</title>
   <meta charset='UTF-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --lawn: #cfeeb0;
+      --lawn-dark: #c2e6a0;
+      --grass: #1f6b3a;
+      --carrot: #ff8a1f;
+      --paper: #fffaf0;
+      --ink: #1b2a1e;
+    }
+
+    * { box-sizing: border-box; }
+
     html, body {
       width: 100%;
       height: 100%;
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
       overflow: hidden;
+      color: var(--ink);
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
     }
 
-    .hello-message {
-      margin: 40px;
-      text-align: center;
-    }
-
-    .logout-messages {
-      pointer-events: none;
-      color: red;
-      margin: 40px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      text-shadow: 2px 2px #FFF, 4px 4px 10px #000;
-    }
-
-    img {
-      width: 300px;
+    /* pasy jak na świeżo skoszonym trawniku */
+    body {
+      background:
+        repeating-linear-gradient(90deg, var(--lawn) 0 80px, var(--lawn-dark) 80px 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: blurslowly 15s infinite;
     }
 
     @keyframes blurslowly {
@@ -38,11 +45,100 @@
       100% { filter: blur(0); }
     }
 
-    body {
-      animation-name: blurslowly;
-      animation-iteration-count: infinite;
-      animation-duration: 15s;
-      animation-play-state: running;
+    .hello-message {
+      width: min(920px, 100% - 48px);
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      grid-template-areas:
+        "photo title"
+        "photo sub"
+        "photo hint";
+      align-content: center;
+      column-gap: 56px;
+      text-align: left;
+      animation: drop 0.7s cubic-bezier(.2, 1.4, .4, 1) both;
+    }
+
+    @keyframes drop {
+      0% { transform: translateY(-40px) rotate(-6deg); opacity: 0; }
+      100% { transform: none; opacity: 1; }
+    }
+
+    .hello-message h1 {
+      grid-area: title;
+      align-self: end;
+      margin: 0 0 12px;
+      font-family: 'Bowlby One', 'Arial Black', Impact, sans-serif;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      color: var(--grass);
+      text-shadow: 3px 3px 0 var(--paper);
+    }
+
+    .hello-message h2 {
+      grid-area: sub;
+      margin: 0 0 20px;
+      font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .hello-message h3 {
+      grid-area: hint;
+      justify-self: start;
+      align-self: start;
+      margin: 0;
+      padding: 8px 16px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: var(--carrot);
+      border-radius: 999px 999px 999px 4px;
+      transform: rotate(-2deg);
+    }
+
+    /* zdjęcie jak odbitka przypięta do trawnika */
+    .hello-message img {
+      grid-area: photo;
+      width: 100%;
+      padding: 14px 14px 44px;
+      background: var(--paper);
+      border-radius: 4px;
+      box-shadow: 0 10px 0 rgba(31, 107, 58, .25);
+      transform: rotate(-3deg);
+    }
+
+    .logout-messages {
+      pointer-events: none;
+      color: #c2131f;
+      margin: 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-weight: 800;
+      text-shadow: 2px 2px var(--paper), 4px 4px 10px rgba(0, 0, 0, .6);
+    }
+
+    @media (max-width: 720px) {
+      .hello-message {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "title"
+          "sub"
+          "hint"
+          "photo";
+        row-gap: 8px;
+        text-align: center;
+      }
+      .hello-message h1 { align-self: auto; }
+      .hello-message h3 { justify-self: center; margin-bottom: 20px; }
+      .hello-message img { width: 220px; justify-self: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, .hello-message { animation: none; }
     }
   </style>
   <link rel="icon" type="image/x-icon" href="media/images/konik.jpg">
