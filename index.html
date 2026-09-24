@@ -121,6 +121,63 @@
       text-shadow: 2px 2px var(--paper), 4px 4px 10px rgba(0, 0, 0, .6);
     }
 
+    /* ekran startowy z przyciskiem na środku */
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 24px;
+      text-align: center;
+      background: repeating-linear-gradient(90deg, var(--lawn) 0 80px, var(--lawn-dark) 80px 160px);
+      transition: opacity .4s ease, visibility .4s ease;
+    }
+
+    .intro.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .intro p {
+      margin: 0;
+      max-width: 20ch;
+      font-family: 'Bowlby One', 'Arial Black', Impact, sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      color: var(--grass);
+      text-shadow: 3px 3px 0 var(--paper);
+    }
+
+    .intro button {
+      padding: 18px 44px;
+      border: 0;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: var(--carrot);
+      box-shadow: 0 8px 0 rgba(31, 107, 58, .35);
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    .intro button:hover { transform: translateY(-2px) rotate(-1deg); }
+
+    .intro button:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px 0 rgba(31, 107, 58, .35);
+    }
+
+    .intro button:focus-visible {
+      outline: 4px solid var(--grass);
+      outline-offset: 4px;
+    }
+
     @media (max-width: 720px) {
       .hello-message {
         grid-template-columns: 1fr;
@@ -163,6 +220,24 @@
     </div>
     <div class='logout-messages'></div>
   </template>
+
+  <div class="intro" id="intro">
+    <p>Kliknij w przycisk na środku, żeby przejść do strony</p>
+    <button type="button" id="enter-btn">Wchodzę!</button>
+  </div>
+
+  <script>
+    // Jeśli chcesz, żeby przycisk przenosił na inną stronę, wpisz tu adres, np. 'https://konik.pl/galeria'
+    var ENTER_URL = '';
+
+    document.getElementById('enter-btn').addEventListener('click', function () {
+      if (ENTER_URL) {
+        window.location.href = ENTER_URL;
+      } else {
+        document.getElementById('intro').classList.add('is-hidden');
+      }
+    });
+  </script>
 
   <script src='index.js'></script>
 
