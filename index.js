@@ -38,11 +38,11 @@ const ART = [
 ]
 
 const SEARCHES = [
-  'jshop',
-  'koniuch',
+  'banansmp',
+  'freetayk',
   'koń',
   'rżenie konia',
-  'jaczup'
+  'jestemgejem'
 ]
 
 const VIDEOS = [
