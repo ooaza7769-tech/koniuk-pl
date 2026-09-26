@@ -77,10 +77,10 @@ const PHRASES = [
   'konie są zabawne hihihihihihihihihi',
   'wgl co u cb bo u mn dbr',
   'wbijaj na banansmp pl ok',
-  'irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa',
+  'styl na instagram',
   'oaza to goat',
   'brak tu koni',
-  'yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa'
+  'never gonna give you up'
 ]
 
 const LOGOUT_SITES = {
