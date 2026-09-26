@@ -47,19 +47,14 @@ const SEARCHES = [
 
 const VIDEOS = [
   'media/videos/caballo.gif',
-  'media/videos/duck.mp4',
+  'media/videos/noodles.mp4',
+  'media/videos/what.mp4',
   'media/videos/rickroll.mp4',
-  'media/videos/golomb.mp4',
-  'media/videos/mushbox.mp4',
-  'media/videos/clearmax.mp4',
-  'media/videos/freestrona.mp4',
-  'media/videos/ajhsdfhjasdbhfjasdfs.mp4',
-  'media/videos/v09044g40000cgr968jc77u1t2krb89g.mov',
-  'media/videos/intro.mp4',
-  'media/videos/szybkikon.mp4', 
-  'media/videos/koniczek.mp4',
-  'media/videos/gratulacje.mp4', 
-  'media/videos/galopik.mp4' 
+  'media/videos/honse.mp4',
+  'media/videos/gigachad.mp4',
+  'media/videos/fast.mp4',
+  'media/videos/banan.mp4',
+  'media/videos/harmless.mp4'
 ]
 
 const FILE_DOWNLOADS = [
