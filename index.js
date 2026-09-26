@@ -76,10 +76,10 @@ const PHRASES = [
   'hello my name is koniuch, lol',
   'konie są zabawne hihihihihihihihihi',
   'wgl co u cb bo u mn dbr',
-  'knuuurrr eksplozja',
+  'wbijaj na banansmp pl',
   'irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa',
-  'abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz',
-  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak',
+  'oaza to goat',
+  'brak tu koni',
   'yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa yhaa'
 ]
 
