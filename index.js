@@ -76,7 +76,7 @@ const PHRASES = [
   'hello my name is koniuch, lol',
   'konie są zabawne hihihihihihihihihi',
   'wgl co u cb bo u mn dbr',
-  'wbijaj na banansmp pl',
+  'wbijaj na banansmp pl ok',
   'irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa irrhaaa',
   'oaza to goat',
   'brak tu koni',
