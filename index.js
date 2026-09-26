@@ -54,7 +54,7 @@ const VIDEOS = [
   'media/videos/gigachad.mp4',
   'media/videos/fast.mp4',
   'media/videos/banan.mp4',
-  'media/videos/harmless.mp4'
+  'media/videos/harmless.mp4',
 ]
 
 const FILE_DOWNLOADS = [
